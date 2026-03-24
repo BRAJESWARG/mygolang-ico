@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 	fmt.Println("If Else in Golang")
+
 	var result string
 
 	loginCount := 10
