@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Welcome If Else in Golang")
+	fmt.Println("Welcome Switch Case in Golang")
 
 	rand.Seed(time.Now().UnixNano())
 	diceNumber := rand.Intn(6) + 1
