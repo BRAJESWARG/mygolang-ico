@@ -1,0 +1,19 @@
+{
+  "name": "lcowebserver",
+  "version": "1.0.0",
+  "description": "A web server for golang series",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon index.js"
+  },
+  "keywords": [
+    "webserver",
+    "lco"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
