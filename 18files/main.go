@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 )
 
@@ -30,8 +29,9 @@ func main() {
 	readFile("./mylcogofile.txt")
 }
 
-func readFile(filrname string) {
-	databyte, err := ioutil.ReadFile(filrname)
+func readFile(filename string) {
+	// databyte, err := ioutil.ReadFile(filename)
+	databyte, err := os.ReadFile(filename)
 
 	// if err != nil {
 	// 	panic(err)

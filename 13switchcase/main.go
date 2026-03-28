@@ -9,7 +9,8 @@ import (
 func main() {
 	fmt.Println("Welcome Switch Case in Golang")
 
-	rand.Seed(time.Now().UnixNano())
+	// rand.Seed(time.Now().UnixNano())
+	rand.New(rand.NewSource(time.Now().UnixNano()))
 	diceNumber := rand.Intn(6) + 1
 	fmt.Println("Vaalue of dice is ", diceNumber)
 
