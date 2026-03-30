@@ -26,3 +26,4 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 }
 
 // go get -u github.com/gorilla/mux
+// go mod tidy
