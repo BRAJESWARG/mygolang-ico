@@ -15,7 +15,7 @@ func main() {
 	var score = []int{0}
 	// mut.RUnlock()
 
-	wg.Add(3)
+	wg.Add(4)
 	go func(wg *sync.WaitGroup, m *sync.RWMutex) {
 		fmt.Println("One R")
 		mut.Lock()
@@ -39,6 +39,7 @@ func main() {
 		mut.Unlock()
 		wg.Done()
 	}(wg, mut)
+	// wg.Add(1)
 	go func(wg *sync.WaitGroup, m *sync.RWMutex) {
 		fmt.Println("Four R")
 		mut.RLock()
