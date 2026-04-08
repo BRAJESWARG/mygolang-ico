@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/example/user-service/pb";
+
+// User message definition
+message User {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  int32 age = 4;
+  bool is_active = 5;
+}
+
+// Request to create a user
+message CreateUserRequest {
+  string name = 1;
+  string email = 2;
+  int32 age = 3;
+}
+
+// Response from creating a user
+message CreateUserResponse {
+  bool success = 1;
+  string message = 2;
+  User user = 3;
+}
+
+// Request to get a user
+message GetUserRequest {
+  int32 id = 1;
+}
+
+// Request to list all users
+message ListUsersRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+}
+
+message ListUsersResponse {
+  repeated User users = 1;
+  int32 total = 2;
+}
+
+// Request to update user
+message UpdateUserRequest {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  int32 age = 4;
+}
+
+message UpdateUserResponse {
+  bool success = 1;
+  User user = 2;
+}
+
+// Request to delete user
+message DeleteUserRequest {
+  int32 id = 1;
+}
+
+message DeleteUserResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// UserService - defines RPC methods
+service UserService {
+  // Create a new user
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+  
+  // Get user by ID
+  rpc GetUser(GetUserRequest) returns (User);
+  
+  // List all users with pagination
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+  
+  // Update existing user
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+  
+  // Delete a user
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+  
+  // Stream user updates (server pushes multiple responses)
+  rpc StreamUsers(ListUsersRequest) returns (stream User);
+}
